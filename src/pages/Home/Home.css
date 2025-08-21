@@ -1,0 +1,55 @@
+.logo-shape {
+  background: black;
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+@keyframes updown {
+  0%, 100% { transform: translateY(-10px); }
+  50% { transform: translateY(10px); }
+}
+
+@keyframes downup {
+  0%, 100% { transform: translateY(10px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-updown {
+  animation: updown 4s ease-in-out infinite;
+}
+
+.animate-downup {
+  animation: downup 4s ease-in-out infinite;
+}
+
+
+/* طفو للكارت */
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+.animate-float-soft {
+  animation: floatSoft 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* موجة خفيفة للأفاتارز */
+@keyframes avatarBob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+.animate-avatar {
+  animation: avatarBob 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* وقف الأنيميشن عند الهوفر على الكارت */
+.group:hover .animated {
+  animation-play-state: paused;
+}
+
+/* لو المستخدم مفعّل تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+  .animate-updown, .animate-downup, .animate-float-soft, .animate-avatar {
+    animation: none !important;
+  }
+}
